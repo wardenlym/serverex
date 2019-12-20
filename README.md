@@ -1,5 +1,8 @@
 # ServerEx
 
+安装mongodb后，clone项目到 gitlab.com/megatech/serverex
+
+    make
 
 协议代码生成
 
