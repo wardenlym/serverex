@@ -1,6 +1,6 @@
 # ServerEx
 
-安装mongodb后，clone项目到 gitlab.com/megatech/serverex
+安装mongodb后
 
     make
 
