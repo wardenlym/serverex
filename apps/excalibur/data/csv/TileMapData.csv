@@ -1,0 +1,3 @@
+﻿地图id,地图类型,地图层数,地图横向长度,地图纵向长度,地图块大小,第1层地图数据,第2层地图数据,第3层地图数据,第4层地图数据,第5层地图数据,第6层地图数据,第7层地图数据
+mapID,mapType,layerCount,mapTileRow,mapTileCol,tileLength,layer1Data,layer2Data,layer3Data,layer4Data,layer5Data,layer6Data,layer7Data
+int,int,int,int,int,int,string[:],string[:],string[:],string[:],string[:],string[:],string[:]

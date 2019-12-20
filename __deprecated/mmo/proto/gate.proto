@@ -1,0 +1,9 @@
+proto3
+
+message Message{
+    
+}
+
+service Game {
+   rpc SendMessage(stream Message) returns (stream Message) {}
+}

@@ -1,0 +1,17 @@
+
+[GoogleToken]
+  ClientId = "1074639094933-dbitlpstp4464et46hp6b2ns4l6fken7.apps.googleusercontent.com"
+  ClientSecret = "l-juUIFpUOfaHfZTdKs39_H9"
+
+[JWTOption]
+  Audience = "ExcaliburClient"
+  Issuer = "MegaIdentityService"
+  SecurityKey = "MegaIdentitySecurityKey"
+
+[SMSOption]
+  AliSMSSignName = "无尽秘境"
+  AliSMSTemplateCode = "SMS_139227612"
+
+[ServerOption]
+  DataSourceName = "root:root@tcp(127.0.0.1:3306)/test?charset=utf8&parseTime=True&loc=Local"
+  ListenAddress = ":6000"

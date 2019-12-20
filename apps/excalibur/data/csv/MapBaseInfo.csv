@@ -1,0 +1,3 @@
+﻿地图类型,地图层数,第1层对应关系,第2层对应关系,第3层对应关系,第4层对应关系,第5层对应关系,第6层对应关系,第7层对应关系
+mapTypeID,layerCount,layer1TileNames,layer2TileNames,layer3TileNames,layer4TileNames,layer5TileNames,layer6TileNames,layer7TileNames
+int,int,string[],string[],string[],string[],string[],string[],string[]

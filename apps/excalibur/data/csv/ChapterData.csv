@@ -1,0 +1,7 @@
+﻿章节id,章节名称,章节描述,章节最大关卡
+chapterId,chapterName,desc,maxStageId
+int,string,string,int
+1000,远古遗迹,1,1015
+2000,战争废墟,1,2025
+3000,熔岩地穴,1,3030
+4000,海底圣所,1,4050

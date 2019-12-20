@@ -1,0 +1,7 @@
+﻿id,强化百分比,强化百分比对应的图标
+id,percent,icon
+int,float,string
+1,0.05,qh_fail
+2,0.08,qh_ordinary
+3,0.1,qh_success
+4,0.15,qh_greatsuccess

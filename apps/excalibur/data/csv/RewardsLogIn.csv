@@ -1,0 +1,10 @@
+﻿登陆天数,道具奖励,道具奖励数量,金币奖励,钻石奖励
+LogInDays,ItemRewards,ItemNum,GoldRewards,DiamondsRewards
+int,int,int,int,int
+1,0,0,1000,0
+2,42534,1,0,0
+3,10015,20,,
+4,0,0,0,100
+5,30002,3,,
+6,12000,10,0,0
+7,11000,3,0,0

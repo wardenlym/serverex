@@ -1,0 +1,5 @@
+﻿英雄ID,英雄名称,钻石价格,金币价格
+id,name,diamondprice,goldprice
+int,string,int,int
+20000,精灵法师,0,120000
+30000,亡灵勇士,1024,0

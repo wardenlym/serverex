@@ -1,0 +1,7 @@
+/demo-server/demo-server
+/demo-server/demo-server.exe*
+/demo-server/debug
+
+/demo-client/demo-client
+/demo-client/demo-client.exe*
+/demo-client/debug

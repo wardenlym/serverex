@@ -1,0 +1,8 @@
+﻿道具ID,商品名称,文字描述,钻石价格,是否可用,品质,图标,图集路径
+id,name,intro,price,is_enable,quality,icon,altasPath
+int,string,string,string,int,int,string,string
+60001,背包2,背包2,120,1,5,shouhu_torch,UI/EquipmentIcon/EquipmentIconAtlasRef
+60002,背包3,背包2,240,1,5,shouhu_torch,UI/EquipmentIcon/EquipmentIconAtlasRef
+60003,背包4,背包2,480,1,5,shouhu_torch,UI/EquipmentIcon/EquipmentIconAtlasRef
+60004,背包5,背包2,960,1,5,shouhu_torch,UI/EquipmentIcon/EquipmentIconAtlasRef
+60005,扩充仓库,可以一直扩充,80,1,5,shouhu_torch,UI/EquipmentIcon/EquipmentIconAtlasRef

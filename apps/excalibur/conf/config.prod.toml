@@ -1,0 +1,10 @@
+
+[AccountOption]
+
+[GateHttpOption]
+  DevModeEnable = false
+  ListenAddress = "127.0.0.1:20001"
+  UseTLS = true
+
+[MongodbOption]
+  MongoAddress = "mongodb://127.0.0.1:27017/excalibur_prod"

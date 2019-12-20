@@ -1,0 +1,7 @@
+﻿ID,套装名称,套装描述,套装数量,属性1,属性1增加值,属性2,属性2增加值,属性3,属性3增加值,属性4,属性4增加值,属性5,属性5增加值
+id,name,desc,effect_num,Attribute1_key,Attribute1_value,Attribute2_key,Attribute2_value,Attribute3_key,Attribute3_value,Attribute4_key,Attribute4_value,Attribute5_key,Attribute5_value
+int,string,string,int[],int,float,int,float,int,float,int,float,int,float
+1,守护骑士,普通攻击附加伤害50,2,4,10,13,0,17,0,4,0,16,0
+2,灵魂突袭,防御20-20|血量+1000|攻击100-100,2|3|5,21,30,18,0,20,0,6,0,10,0
+3,湖中精灵,防御20-20|血量+1000|攻击100-100|吸血,2|3|4|7,6,100,18,0,6,0,17,0,5,0
+4,圣剑Excalibur,防御20-20|血量+1000|攻击100-100|暴击,2|4|6|8,12,500,13,0,8,0,7,0,9,0

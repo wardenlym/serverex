@@ -1,0 +1,531 @@
+ns msg
+enum Msg from 1 {
+	GetUserInfo
+	EnterStage
+	ExitStage
+	BattleStart
+	BattleEnd
+
+	DestroyItem
+
+	ConsumItem
+	Equip
+	Unequip
+
+	ListOnSale
+	RefreshOnSale
+	Purchase
+
+	ListDiamondPrice
+	SubmitOrder
+	QueryOrderStatus
+	Craft
+	Decompose
+	Enhance
+	LevelUp
+	JobUpgrade
+	RuneEquip
+	RuneUnequip
+	EnterDungeon
+	ExitDungeon
+	Reborn
+	ExpandBagCell
+}
+
+enum Msg from 151 {
+    AccountLogin
+	AccountRegister
+}
+
+enum Msg from 201 {
+    GM_CreateUser
+	GM_ResetUser
+	GM_CreateItem
+	GM_SetMyMoney
+	GM_ResetJob
+}
+
+enum Err from 1 {
+    ErrNotImplemented
+	ErrSendFailure
+	ErrNotExist
+	ErrDBError
+	ErrDecodeJSON
+	ErrOutOfSync
+}
+
+ns odm
+type User struct {
+	Uid                  int64
+	Nickname             string
+	CreatedAt            string
+	UpdatedAt            string
+	CharacterIds         []string
+	Characters           map[string]Character
+	Stash                Stash
+	Diamond              uint
+	Gold                 uint
+	OnSaleInfos          []OnSaleInfo
+	OnSaleLastUpdateTime int64
+}
+
+type Character struct {
+	HeroId          int
+	Level           int
+	TownAttribute   Attribute
+	BattleAttribute Attribute
+	DungeonStatus   DungeonStatus
+	RuneTree        RuneTree
+	Bag             Bag
+}
+
+// 属性不细写了，特别是跟战斗有关的属性，往这个里面加
+type Attribute struct {
+	Hp         int
+	Mp         int
+	KillValue  uint
+	JobTree    JobTree
+	LuckyValue uint
+	ExtraGold  uint
+}
+
+type JobTree struct {
+	JobStatus []JobStatus
+}
+
+type JobStatus struct {
+	JobId   int
+	JobStar uint
+}
+
+type RuneTree struct {
+	Cells []RuneCell
+}
+
+type RuneCell struct {
+	Item      *Item
+	SlotColor int
+	Enable    bool
+}
+
+type Bag struct {
+	Equipments    []Cell
+	Cells         []Cell
+}
+
+type Stash struct {
+	Cells         []Cell
+}
+
+type Cell struct {
+	Num   uint
+	Item  *Item
+}
+
+type Item struct {
+	Guid            int64
+	TypeId          int
+	StarLevel       int
+	StarUpgradeInfo []int
+	Fresh           bool
+}
+
+type StageInfo struct {
+	StageId      int
+	MapId        int
+	EntranceType int
+	Seed         int
+	NpcList      []Npc
+}
+
+type Npc struct {
+	NpcId     int
+	NpcTypeId int
+	IsDead    bool
+}
+
+type DungeonStatus struct {
+	State            string
+	StageProgress    []StageInfo
+	CurrentStageInfo StageInfo
+	CurrentBattleNpc Npc
+	UnpickedLoot     []Cell
+	LootTotal        []Cell
+	GoldTotal        uint
+}
+
+type OnSaleInfo struct {
+	GoodsId          int
+	TypeId           int
+	NumTotal         uint
+	NumAvailable     uint
+	NumSQ            uint
+	AvailableStageId int
+	CostGold         uint
+	CostDiamond      uint
+	Discount         uint
+}
+
+type DiamondPrice struct {
+	GoodsId  int
+	Num      uint
+	PriceRMB uint
+	Discount uint
+}
+
+type OrderInfo struct {
+	OrderId         string
+	GoodsTypeId     int
+	Amount          uint
+	PayToken        string
+	TradeSubmitTime int64
+	TradeDealTime   int64
+}
+
+type Material struct {
+	TypeId int
+	Num    uint
+}
+
+ns rpc
+type AccountLoginRequest struct {
+}
+type AccountLoginResponse struct {
+}
+
+type AccountRegisterRequest struct {
+}
+type AccountRegisterResponse struct {
+}
+
+type GetUserInfoRequest struct {
+}
+type GetUserInfoResponse struct {
+	User *odm.User
+}
+
+type EnterDungeonRequest struct {
+	CharacterId string
+}
+type EnterDungeonResponse struct {
+	ErrCode int
+	State   string
+}
+
+type ExitDungeonRequest struct {
+	CharacterId string
+}
+type ExitDungeonResponse struct {
+	ErrCode     int
+	State       string
+	LastStageId int
+	Gold        uint
+	NpcList     []odm.Npc
+	ItemList    []odm.Cell
+}
+
+type RebornRequest struct {
+	CharacterId string
+	Diamond     uint
+}
+type RebornResponse struct {
+	ErrCode int
+	State   string
+	Diamond uint
+}
+
+type EnterStageRequest struct {
+	CharacterId string
+	StageId     int
+}
+type EnterStageResponse struct {
+	ErrCode   int
+	State     string
+	StageInfo odm.StageInfo
+}
+
+type ExitStageRequest struct {
+	CharacterId string
+	StageId     int
+	StageClear  bool
+}
+type ExitStageResponse struct {
+	ErrCode int
+	State   string
+}
+
+type BattleStartRequest struct {
+	CharacterId string
+	NpcId       int
+	NpcTypeId   int
+}
+type BattleStartResponse struct {
+	ErrMsg string
+	State  string
+}
+
+type BattleEndRequest struct {
+	CharacterId  string
+	NpcId        int
+	NpcType      int
+	BattleResult string
+}
+type BattleEndResponse struct {
+	ErrCode       int
+	State         string
+	Npc           odm.Npc
+	UnpickupItems []odm.Cell
+	AllAwardItems []odm.Cell
+	BagCell       []odm.Cell
+}
+
+type DestroyItemRequest struct {
+	CharacterId string
+	CellIndex   int
+}
+type DestroyItemResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+}
+
+type ConsumItemRequest struct {
+	CharacterId string
+	CellIndex   int
+	Num         uint
+}
+type ConsumItemResponse struct {
+	IsSuccess     bool
+	ErrMsg        string
+	CellNewStatus odm.Cell
+}
+
+type EquipRequest struct {
+	CharacterId   string
+	FromCellIndex int
+	ToCellIndex   int
+}
+type EquipResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+}
+
+type UnequipRequest struct {
+	CharacterId   string
+	FromCellIndex int
+	ToCellIndex   int
+}
+type UnequipResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+}
+
+type ListOnSaleRequest struct {
+	CharacterId string
+}
+type ListOnSaleResponse struct {
+	LastTime        int64
+	CurrentTime     int64
+	NextRefreshTime int64
+	OnSaleInfos     []odm.OnSaleInfo
+}
+
+type RefreshOnSaleRequest struct {
+	CharacterId string
+	CostGold    uint
+	CostDiamond uint
+}
+type RefreshOnSaleResponse struct {
+	IsSuccess bool
+}
+
+type PurchaseRequest struct {
+	CharacterId string
+	GoodsId     int
+	TypeId      int
+	Num         uint
+	CostGold    uint
+	CostDiamond uint
+}
+type PurchaseResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	Gold      uint
+	Diamond   uint
+	BagStatus odm.Bag
+}
+
+type ListDiamondPriceRequest struct {
+	CharacterId string
+}
+type ListDiamondPriceResponse struct {
+	DiamondPrices []odm.DiamondPrice
+}
+
+type SubmitOrderRequest struct {
+	CharacterId string
+	GoodsTypeId int
+	Amount      uint
+	PayToken    string
+}
+type SubmitOrderResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	OrderInfo odm.OrderInfo
+}
+
+type QueryOrderStatusRequest struct {
+	OrderId string
+}
+type QueryOrderStatusResponse struct {
+	OrderInfo odm.OrderInfo
+}
+
+type CraftRequest struct {
+	CharacterId   string
+	ToCraftTypeId int
+	Materials     []odm.Material
+	CostGold      uint
+	CostDiamond   uint
+}
+type CraftResponse struct {
+	IsSuccess    bool
+	ErrMsg       string
+	CraftedItems odm.Cell
+	Gold         uint
+	Diamond      uint
+	BagStatus    odm.Bag
+}
+
+type DecomposeRequest struct {
+	CharacterId         string
+	DecomposedCellIndex uint
+	CostGold            uint
+	CostDiamond         uint
+}
+type DecomposeResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	TypeId    int
+	Num       uint
+	Gold      uint
+	Diamond   uint
+	BagStatus odm.Bag
+}
+
+type EnhanceRequest struct {
+	CharacterId    string
+	ToEnhanceIndex int
+	CostGold       uint
+	CostDiamond    uint
+	Materials      []odm.Material
+}
+type EnhanceResponse struct {
+	IsSuccess    bool
+	ErrMsg       string
+	EnhancedItem odm.Cell
+	BagStatus    odm.Bag
+	Gold         uint
+	Diamond      uint
+}
+
+type LevelUpRequest struct {
+	CharacterId  string
+	CurrentLevel int
+	Materials    []odm.Material
+}
+type LevelUpResponse struct {
+	IsSuccess    bool
+	ErrMsg       string
+	CurrentLevel int
+	BagStatus    odm.Bag
+}
+
+type JobUpgradeRequest struct {
+	CharacterId   string
+	CostKillValue uint
+	JobStatus     odm.JobStatus
+}
+type JobUpgradeResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	JobTree   odm.JobTree
+	KillValue uint
+}
+
+type RuneEquipRequest struct {
+	CharacterId   string
+	FromCellIndex int
+	ToCellIndex   int
+}
+type RuneEquipResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	BagStatus odm.Bag
+	RuneTree  odm.RuneTree
+}
+
+type RuneUnequipRequest struct {
+	CharacterId   string
+	FromCellIndex int
+}
+type RuneUnequipResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	CellIndex int
+	BagStatus odm.Bag
+	RuneTree  odm.RuneTree
+}
+
+type ExpandBagCellRequest struct {
+	CharacterId string
+	GoodsId     int
+}
+type ExpandBagCellResponse struct {
+	ErrCode int
+	Start   int
+	Offert  int
+	Diamond uint
+}
+
+// GM
+type GM_CreateUserRequest struct {
+}
+type GM_CreateUserResponse struct {
+}
+
+type GM_ResetUserRequest struct {
+}
+type GM_ResetUserResponse struct {
+}
+
+type GM_CreateItemRequest struct {
+	CharacterId string
+	TypeId      int
+	StarLevel   int
+	Num         uint
+}
+type GM_CreateItemResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+	NewItem   odm.Item
+	Num       uint
+	CellIndex int
+}
+
+type GM_SetMyMoneyRequest struct {
+	Gold    uint
+	Diamond uint
+}
+type GM_SetMyMoneyResponse struct {
+	IsSuccess bool
+	ErrMsg    string
+}
+
+type GM_ResetJobRequest struct {
+	CharacterId string
+	KillValue   uint
+}
+type GM_ResetJobResponse struct {
+	JobTree   odm.JobTree
+	KillValue uint
+}

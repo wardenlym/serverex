@@ -1,0 +1,11 @@
+﻿uid,商品id,商量类型,商品名称,钻石数量,人民币价格,美元价格,图标名称,图集路径
+uid,skuId,skuType,skuName,diamondNum,RMB,USD,Icon,altasPath
+int,string,string,string,int,float,float,string,string
+1,excalibur.sdbean.6rmb,diamond,小袋钻石,60,6,0.99,zuanshi_1,UI/EquAtlas/EquAtlas_ref
+2,excalibur.sdbean.18rmb,diamond,中袋钻石,180,18,2.99,zuanshi_2,UI/EquAtlas/EquAtlas_ref
+3,excalibur.sdbean.30rmb,diamond,大袋钻石,300,30,4.99,zuanshi_3,UI/EquAtlas/EquAtlas_ref
+4,excalibur.sdbean.60rmb,diamond,小堆钻石,630,60,9.99,zuanshi_5,UI/EquAtlas/EquAtlas_ref
+5,excalibur.sdbean.128rmb,diamond,中堆钻石,1350,128,19.9,zuanshi_6,UI/EquAtlas/EquAtlas_ref
+6,excalibur.sdbean.328rmb,diamond,大堆钻石,3450,328,49.9,zuanshi_7,UI/EquAtlas/EquAtlas_ref
+7,excalibur.sdbean.yueka,vip.month,月卡,300,30,4.99,,
+8,excalibur.sdbean.shenyou,vip.godbless,神佑,980,98,13.99,,

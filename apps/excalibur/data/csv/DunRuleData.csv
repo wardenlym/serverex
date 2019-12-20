@@ -1,0 +1,15 @@
+﻿章节id,章节规则,文字描述,规则
+id,name,intro,rule
+int,string,string[],string
+1000,雪中送炭,[f9e0a9]每杀死[-]{0}[f9e0a9]名{1}[-]|获得{0},{"race_category":0，"race_category_num":0，"gift_id":0，"gift_num":10}
+2000,背包3,[f9e0a9]收集亡者的灵魂，提升{0}的能力[-],[{"id":1，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4901}，
+{"id":2，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4902}，
+{"id":3，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4903}，
+{"id":4，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4904}，
+{"id":5，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4905}，
+{"id":6，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4906}，
+{"id":7，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4907}，
+{"id":8，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4908}，
+{"id":9，"cat_one":"1|50"，"cat_two":"1|50"，"cat_three":"1|50"，"cat_four":"1|50"，"gift_id":4909}]
+3000,绝地求生,[全体][f9e0a9]火属性攻击[-][5edb30]提高{0}[-]|[主角][f9e0a9]每次攻击，[-][E5110B]受到自己{0}的火属性攻击的伤害[-],{"attack_attr":50，"attack_myself":50}
+4000,绝地求生,[主角][f9e0a9]每次攻击[-]，[E5110B]冰属性伤害的{0}将恢复怪物的生命[],{"attack_attr":50，"attack_myself":0}

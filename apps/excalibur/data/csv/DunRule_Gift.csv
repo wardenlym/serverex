@@ -1,0 +1,4 @@
+﻿uid,规则名,文字描述,怪物数量,礼物id,礼物数量
+uid,name,intro,monster_num,gift_id,gift_num
+int,string,string[],int,int,int
+1,雪中送炭,[f9e0a9]每杀死[-]{0}[f9e0a9]名怪物[-]|获得{0},10,30002,1

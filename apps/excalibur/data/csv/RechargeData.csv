@@ -1,0 +1,9 @@
+﻿商品ID,商品名称,钻石数量,人民币价格,折扣,图标名称,图集路径,产品id
+GoodsId,GoodsName,Num,PricerRMB,Discount,Icon,altasPath,ProductId
+int,string,int,int,int,string,string,string
+1,小袋钻石,60,6,100,zuanshi_1,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.6rmb
+2,中袋钻石,180,18,100,zuanshi_2,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.18rmb
+3,大袋钻石,300,30,100,zuanshi_3,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.30rmb
+4,小堆钻石,630,60,100,zuanshi_5,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.60rmb
+5,中堆钻石,1350,128,100,zuanshi_6,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.128rmb
+6,大堆钻石,3450,328,100,zuanshi_7,UI/EquAtlas/EquAtlas_ref,excalibur.sdbean.328rmb

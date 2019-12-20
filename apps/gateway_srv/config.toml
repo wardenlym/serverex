@@ -1,0 +1,42 @@
+
+[[ServiceList]]
+  Endpoint = "https://excalibur.53site.com/identity/api"
+  Env = "prod"
+  ServerId = "game-node-01"
+  ServiceType = "identity"
+  Version = "1.0.1"
+
+[[ServiceList]]
+  Endpoint = "https://werewolf.53site.com/excalibur/api/"
+  Env = "all"
+  ServerId = "assets"
+  ServiceType = "assets"
+  Version = "0.0.1"
+
+[[ServiceList]]
+  Endpoint = "https://excalibur.53site.com/excalibur/beta/api/gs"
+  Env = "beta"
+  ServerId = "test-node-01"
+  ServiceType = "game"
+  Version = "0.0.1"
+
+[[ServiceList]]
+  Endpoint = "https://excalibur.53site.com/excalibur/approval/api/gs"
+  Env = "approval"
+  ServerId = "game-node-01"
+  ServiceType = "game"
+  Version = "1.0.1"
+
+[[ServiceList]]
+  Endpoint = "https://excalibur.53site.com/excalibur/prod/api/gs"
+  Env = "prod"
+  ServerId = "game-node-01"
+  ServiceType = "game"
+  Version = "1.0.1"
+
+[[ServiceList]]
+  Endpoint = "https://excalibur.53site.com/excalibur/taptap/api/gs"
+  Env = "taptap"
+  ServerId = "game-node-01"
+  ServiceType = "game"
+  Version = "1.0.1"
